@@ -48,7 +48,6 @@ def pre_process_data(data):
     return features, labels
 
 
-
 def split_data(features, labels):
     print("Splitting data into training and validation sets...")
     features_train, features_validation, labels_train, labels_validation = train_test_split(features, labels, test_size=0.2, random_state=101)

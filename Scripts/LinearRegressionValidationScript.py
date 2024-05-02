@@ -8,6 +8,7 @@
 import sys
 import pandas as pandas_reader
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
 import joblib as load_module
 
 
@@ -53,6 +54,11 @@ def pre_process_data(data):
     return features, labels
 
 
+def split_data(features, labels):
+    print("Splitting data into training and validation sets...")
+    features_train, features_validation, labels_train, labels_validation = train_test_split(features, labels, test_size=0.2, random_state=101)
+    return features_train, features_validation, labels_train, labels_validation
+
 
 def predict_price(model, features):
     print("Making predictions...")
@@ -79,14 +85,17 @@ def main(model_path, data_path):
     # Pre-procesar los datos
     features, labels = pre_process_data(data)
 
+    # Dividir los datos en conjuntos de entrenamiento y validación
+    train_features, validation_features, train_labels, validation_labels = split_data(features, labels)
+
     # Realizar predicciones con el modelo entrenado
-    predictions = predict_price(model, features)
+    predictions = predict_price(model, validation_features)
 
     # Evaluar el modelo
-    mae, mse, rmse, r2 = evaluate_model(labels, predictions)
+    mae, mse, rmse, r2 = evaluate_model(validation_labels, predictions)
 
     # Imprimir métricas de evaluación
-    print("\n\nMétricas de Evaluación del Modelo:")
+    print("\n\nModel Evaluation Results:")
     print("MAE:", mae)
     print("MSE:", mse)
     print("RMSE:", rmse)
@@ -95,7 +104,7 @@ def main(model_path, data_path):
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Uso: py ./LinearRegressionPredictionScript.py <model path> <dataset path>")
+        print("Uso: py ./LinearRegressionValidationScript.py <model path> <dataset path>")
         sys.exit(1)
 
     model_input_path = sys.argv[1]
