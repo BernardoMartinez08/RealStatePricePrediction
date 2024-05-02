@@ -18,30 +18,41 @@ def load_data(file_path):
 
 def pre_process_data(data):
     print("Pre-processing data...")
-    data = data[['price', 'bed', 'bath', 'acre_lot', 'house_size']]
-    features = data.drop('price', axis=1)
-    labels = data['price']
-    return features, labels
+    proceed_data = data[['price', 'bed', 'bath', 'acre_lot', 'house_size']]
+    print("Imputing missing values...")
+    imputed_data = proceed_data.dropna()
+    features = imputed_data.drop('price', axis=1)
+    labels = imputed_data['price']
+    return features, labels, imputed_data
 
 
 def generate_scatter_plots(features, labels, data):
     print("Generating scatter plots...")
-    fig, axs = plt.subplots(nrows=len(features), ncols=1, figsize=(8, 6*len(features)))
+    num_features = len(features)
+    max_plots_per_figure = 5
+    num_figures = (num_features + max_plots_per_figure - 1) // max_plots_per_figure
 
-    for i, feature in enumerate(features):
-        axs[i].scatter(data[feature], labels, alpha=0.5)
-        axs[i].set_title(f'{feature.capitalize()} vs Precio de Venta')
-        axs[i].set_xlabel(feature.capitalize())
-        axs[i].set_ylabel('Precio de Venta')
+    for fig_idx in range(num_figures):
+        start_idx = fig_idx * max_plots_per_figure
+        end_idx = min(start_idx + max_plots_per_figure, num_features)
 
-    plt.tight_layout()
-    plt.show()
+        fig, axs = plt.subplots(nrows=(end_idx - start_idx), ncols=1, figsize=(8, 6 * (end_idx - start_idx)))
+
+        for i, feature in enumerate(features[start_idx:end_idx]):
+            axs[i].scatter(data[feature], labels, alpha=0.5)
+            axs[i].set_title(f'{feature.capitalize()} vs Precio de Venta')
+            axs[i].set_xlabel(feature.capitalize())
+            axs[i].set_ylabel('Precio de Venta')
+
+        plt.tight_layout()
+        plt.show()
 
 
 def main(data_path):
     data = load_data(data_path)
-    features, labels = pre_process_data(data)
-    generate_scatter_plots(features, labels, data)
+    features, labels, pre_processed_data = pre_process_data(data)
+    generate_scatter_plots(features, labels, pre_processed_data)
+    print("Done!")
 
 
 if __name__ == "__main__":

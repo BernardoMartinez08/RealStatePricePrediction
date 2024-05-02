@@ -9,9 +9,6 @@ import sys
 import pandas as pandas_reader
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.impute import KNNImputer
-from joblib import Parallel, delayed
-
 import joblib as save_module
 
 
@@ -21,12 +18,35 @@ def load_data(file_path):
     return data
 
 
+def remove_outliers(data_frame, column, threshold=1.5):
+    print("Removing outliers from", column)
+    q1 = data_frame[column].quantile(0.25)
+    q3 = data_frame[column].quantile(0.75)
+    iqr = q3 - q1
+    lower_bound = q1 - threshold * iqr
+    upper_bound = q3 + threshold * iqr
+    return data_frame[(data_frame[column] >= lower_bound) & (data_frame[column] <= upper_bound)]
+
+
+def remove_outliers_from_columns(data_frame):
+    data_without_outliers = remove_outliers(data_frame, 'bath', threshold=1.5)
+    data_without_outliers = remove_outliers(data_without_outliers, 'bed', threshold=1.5)
+    data_without_outliers = remove_outliers(data_without_outliers, 'acre_lot', threshold=1.5)
+    data_without_outliers = remove_outliers(data_without_outliers, 'house_size', threshold=1.5)
+    data_without_outliers = remove_outliers(data_without_outliers, 'price', threshold=1.5)
+    return data_without_outliers
+
+
 def pre_process_data(data):
     print("Pre-processing data...")
     proceed_data = data[['price', 'bed', 'bath', 'acre_lot', 'house_size']]
-    features = proceed_data.drop('price', axis=1)
-    labels = proceed_data['price']
+    print("Imputing missing values...")
+    imputed_data = proceed_data.fillna(proceed_data.mean())
+    data_without_outliers = remove_outliers_from_columns(imputed_data)
+    features = data_without_outliers.drop('price', axis=1)
+    labels = data_without_outliers['price']
     return features, labels
+
 
 
 def split_data(features, labels):
