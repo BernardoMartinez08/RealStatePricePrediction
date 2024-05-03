@@ -119,7 +119,7 @@ def main(model_path, data_path):
     print("RMSE:", rmse)
     print("R^2 Score:", r2)
 
-    # Después de evaluar el modelo
+    # Después de evaluar el modelo entrenado, se pueden hacer predicciones en datos no vistos
     make_predictions_unseen_data(model, preprocessed_data)
 
 
