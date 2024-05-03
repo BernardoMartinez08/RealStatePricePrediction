@@ -10,6 +10,7 @@ import pandas as pandas_reader
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 import joblib as load_module
+import matplotlib.pyplot as plt
 
 
 def load_data(file_path):
@@ -51,7 +52,7 @@ def pre_process_data(data):
     data_without_outliers = remove_outliers_from_columns(imputed_data)
     features = data_without_outliers.drop('price', axis=1)
     labels = data_without_outliers['price']
-    return features, labels
+    return features, labels, data_without_outliers
 
 
 def split_data(features, labels):
@@ -75,6 +76,22 @@ def evaluate_model(labels, predictions):
     return mae, mse, rmse, r2
 
 
+def make_predictions_unseen_data(model, data, num_examples=5):
+    print("\n\nPredictions on Unseen Data:")
+    unseen_data = data.sample(num_examples, random_state=42)
+    unseen_features = unseen_data.drop('price', axis=1)
+    unseen_labels = unseen_data['price']
+    predictions = predict_price(model, unseen_features)
+
+    for idx, (prediction, actual_price) in enumerate(zip(predictions, unseen_labels)):
+        print(f"Example {idx + 1}: Predicted Price: {prediction}, Actual Price: {actual_price}")
+        plt.scatter(unseen_labels.iloc[idx], predictions[idx], color='blue')
+        plt.xlabel("Actual Price")
+        plt.ylabel("Predicted Price")
+        plt.title("Actual vs Predicted Price")
+    plt.show()
+
+
 def main(model_path, data_path):
     # Cargar el modelo entrenado
     model = load_model(model_path)
@@ -83,7 +100,8 @@ def main(model_path, data_path):
     data = load_data(data_path)
 
     # Pre-procesar los datos
-    features, labels = pre_process_data(data)
+
+    features, labels, preprocessed_data = pre_process_data(data)
 
     # Dividir los datos en conjuntos de entrenamiento y validación
     train_features, validation_features, train_labels, validation_labels = split_data(features, labels)
@@ -100,6 +118,9 @@ def main(model_path, data_path):
     print("MSE:", mse)
     print("RMSE:", rmse)
     print("R^2 Score:", r2)
+
+    # Después de evaluar el modelo
+    make_predictions_unseen_data(model, preprocessed_data)
 
 
 if __name__ == "__main__":

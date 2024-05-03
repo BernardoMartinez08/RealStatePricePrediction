@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f824bbb3-b078-4a68-82a2-3dcd186af337" name="Changes" comment="Version Final">
-      <change afterPath="$PROJECT_DIR$/Scripts/DataAnalyzerScript.py" afterDir="false" />
+    <list default="true" id="f824bbb3-b078-4a68-82a2-3dcd186af337" name="Changes" comment="Version Final - Mejores Graficas, y cambiso en la validacion y entrenamiento">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/LinearRegressionGrapherScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/LinearRegressionGrapherScript.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/LinearRegressionPredictionScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/LinearRegressionValidationScript.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/LinearRegressionValidationScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/LinearRegressionValidationScript.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,27 +45,27 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.DataAnalyzerScript.executor": "Run",
-    "Python.LinearRegressionGrapherScript.executor": "Run",
-    "Python.LinearRegressionPredictionScript.executor": "Run",
-    "Python.LinearRegressionTrainingScript.executor": "Run",
-    "Python.LinearRegressionValidationScript.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Clases/Q2-2024/SistemasInteligentes/Tarea1-RegresionLineal/Datos/train-validation-data.csv",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.DataAnalyzerScript.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LinearRegressionGrapherScript.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LinearRegressionPredictionScript.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LinearRegressionTrainingScript.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LinearRegressionValidationScript.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Clases/Q2-2024/SistemasInteligentes/Tarea1-RegresionLineal/Datos/train-validation-data.csv&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.LinearRegressionValidationScript">
     <configuration name="DataAnalyzerScript" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="RealEstatePricePrediction" />
@@ -199,6 +197,8 @@
       <workItem from="1714519435762" duration="1477000" />
       <workItem from="1714596437267" duration="12241000" />
       <workItem from="1714631911172" duration="9178000" />
+      <workItem from="1714684326816" duration="5326000" />
+      <workItem from="1714697475764" duration="5104000" />
     </task>
     <task id="LOCAL-00001" summary="Version pre-final, solo falta preprocesar datos para eliminar datos NaN">
       <option name="closed" value="true" />
@@ -216,22 +216,42 @@
       <option name="project" value="LOCAL" />
       <updated>1714620798992</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Version Final - Mejores Graficas, y cambiso en la validacion y entrenamiento">
+      <option name="closed" value="true" />
+      <created>1714689515701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714689515701</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Version pre-final, solo falta preprocesar datos para eliminar datos NaN" />
     <MESSAGE value="Version Final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version Final" />
+    <MESSAGE value="Version Final - Mejores Graficas, y cambiso en la validacion y entrenamiento" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version Final - Mejores Graficas, y cambiso en la validacion y entrenamiento" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RealEstatePricePrediction$LinearRegressionPredictionScript.coverage" NAME="LinearRegressionPredictionScript Coverage Results" MODIFIED="1714621499767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$LinearRegressionGrapherScript.coverage" NAME="LinearRegressionGrapherScript Coverage Results" MODIFIED="1714621358026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$LinearRegressionValidationScript.coverage" NAME="LinearRegressionValidationScript Coverage Results" MODIFIED="1714640907383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$DataAnalyzerScript.coverage" NAME="DataAnalyzerScript Coverage Results" MODIFIED="1714635230776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$LinearRegressionTrainingScript.coverage" NAME="LinearRegressionTrainingScript Coverage Results" MODIFIED="1714617915610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$LinearRegressionGrapherScript.coverage" NAME="LinearRegressionGrapherScript Coverage Results" MODIFIED="1714689566920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$LinearRegressionValidationScript.coverage" NAME="LinearRegressionValidationScript Coverage Results" MODIFIED="1714700909281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$DataAnalyzerScript.coverage" NAME="DataAnalyzerScript Coverage Results" MODIFIED="1714686332112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/RealEstatePricePrediction$LinearRegressionTrainingScript.coverage" NAME="LinearRegressionTrainingScript Coverage Results" MODIFIED="1714700884093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
